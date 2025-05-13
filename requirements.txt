@@ -2,6 +2,4 @@ flask
 torch
 torchvision
 Pillow
-matplotlib
-numpy
-pickle
+
