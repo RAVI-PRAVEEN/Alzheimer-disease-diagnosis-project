@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #ede6df;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px rgb(99, 67, 67);
+        }
+        h2 {
+            color: blue;
+        }
+        img {
+            display: block; 
+            margin: 10px auto;
+            max-width: 200px;
+            height: auto;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            display: block;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 20px 15px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Prediction Result</h2>
+        <img id="uploaded-image" src="{{ image_url }}" alt="Uploaded Image">
+        <p>Detected Condition: <strong>{{ prediction }}</strong></p>
+        <a href="/">Upload Another Image</a>
+    </div>
+</body>
+</html>

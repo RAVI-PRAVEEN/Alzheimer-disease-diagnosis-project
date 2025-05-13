@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: sans-serif;
+            background-color:rgb(153, 179, 255);
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgb(99, 67, 67);
+        }
+        h1 {
+            color: rgb(39, 15, 125);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: rgba(174, 0, 255, 0.871);
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 10px auto;
+        }
+        img {
+            display: block; 
+            margin: 10px auto;
+            max-width: 200px;
+            height: auto;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('preview').src = e.target.result;
+                    document.getElementById('preview').style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Alzeheimer Disease Dignosis </h1>
+        <h2>Upload an MRI Scan</h2>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required onchange="previewImage(event)">
+            <img id="preview" style="display: none;">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
